@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Crypto 101</title>
+
+		<meta name="description" content="Presentation on privacy">
+		<meta name="author" content="Nishchal Gautam">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Crypto 101</h1>
+					<h3>The basics of Cryptography</h3>
+					<p>
+						<small><a href="http://nishgtm.com">Nishchal Gautam </a> / <a href="http://twitter.com/cyb3rhck">@cyb3rhck</a></small><br>
+					</p>
+				</section>
+				<section>
+					<h1>What is privacy?</h1>
+					<h3>And why should we care?</h3>
+					<aside class="notes">
+						Explain using an example of a guy watching you all the time
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h1>NSA</h1>
+						<p>National Security Agency</p>
+					</section>
+					<section>
+						<h1>PRISM?</h1>
+						<h3>Planning Tool for Resource Integration, Synchronization, and Management</h3>
+						<p>Very powerful surveillance program from NSA.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>So, What is Crypto?</h2>
+					<p>
+						Study of techniques for secure communication!
+					</p>
+					<p class="fragment">
+						Something used to convert a message to nonsense!
+					</p>
+				</section>
+				<section>
+						<h2>Example!</h2>
+						<p>
+							The simplest Example would be: <br>
+							<big class="fragment roll-in"><b>Ceaser Cipher!</b></big>
+						</p>
+				</section>
+				<section>
+					<section>
+						<h2>The Ceaser Cipher!</h2>
+						<p>
+							converts: I LOVE YOU to
+						</p>
+					</section>
+					<section>
+						<h2>C FIPY SIO</h2>
+						<p>When the Key is: 20</p>
+					</section>
+
+					<section>
+						<h2>Okay, How does it work?</h2>
+						<p>Each letter is shifted by the key!</p>
+						<aside class="notes">
+							Explain this. Suppose the key is One. And the message is ABCD
+							Then after performing Ceaser Cipher, the message becomes
+							BCDE. To Get it back
+						</aside>
+
+					</section>
+					<section>
+						<h2>To Get it Back</h2>
+						<p>Just shift in opposite direction!</p>
+						<aside class="notes">
+							Explain What's happening here. You are using a same key to convert
+							the message to nonsense, and the same key to get it back.
+							Unless you have the key, You cannot decrypt
+						</aside>
+					</section>
+					<section>
+						<h2>Cons!</h2>
+						<p>
+							One can sit all day and try all 26 combinations!
+						</p>
+						<aside class="notes">
+							Tell, this technique is called brute-forcing. Trying all combinations
+							until you get to the result. All crypto can be decrypted using brute
+							force. The only problem is: Is it feasible/possible to brute force!
+						</aside>
+					</section>
+				</section>
+
+				<section data-trasition="linear" data-background-transition="slide">
+					<h2>Types of Encryption</h2>
+					<ul>
+						<li>Symmetric</li>
+						<li>Assymetric</li>
+						<li>Hybrid</li>
+					</ul>
+					<aside class="notes">
+						The audience now knows about the keys used in encryption. Now, they can calssify
+						according to the types
+					</aside>
+				</section>
+
+				<section>
+					<section data-background-transition="slide" data-transition="linear">
+						<h2>Symmetric</h2>
+						<p>
+							Use same key for encryption and Decryption<br>
+							Example: Ceaser Cipher!
+						</p>
+					</section>
+					<section data-background-transition="slide" data-transition="linear">
+						<h2>Exchanging keys securely</h2>
+						<p>
+							Demonstration of symmetric key encryption.
+						</p>
+						<aside class="notes">
+							g = 5, p = 23, a=6 (secret) <br>
+							A=g<sup>a</sup> mod p <br>
+							A=5<sup>6</sup>mod 23=8 <br>
+							send it to bob, bob choses b=15 (secret) <br>
+							B=g<sup>b</sup>mod p <br>
+							B=5<sup>15</sup>mod 23=19 send it to alice <br>
+							now bob computes s=A<sup>b</sup>mod p <br>
+							s = 8<sup>15</sup>mod 23=2 <br>
+							and alice computes s=B<sup>a</sup>mod p <br>
+							s = 19<sup>6</sup>mod 23=2 <br>
+						</aside>
+					</section>
+
+					<section data-background-transition="slide" data-transition="linear">
+						<h2>Assymetric</h2>
+						<p>
+							It uses two different keys for encryption and decryption.
+						</p>
+						<aside class="notes">
+						</aside>
+					</section>
+					<section>
+						<h2>Which leads to:</h2>
+						<h1 class="fragment roll-in">Public Key Cryptography</h1>
+					</section>
+				</section>
+
+				<section data-transition="linear" data-background-transition="slide">
+					<section>
+						<h2>Public Key Cryptography</h2>
+						<p>
+							Two Keys (A pair)
+						</p>
+							<ul>
+								<li class="fragment roll-in">Public  Key</li>
+								<li class="fragment roll-in">Private  Key</li>
+							</ul>
+						<aside class="notes">
+							...
+						</aside>
+					</section>
+					<section>
+						<h2>Public Key Cryptography</h2>
+						<p>
+							<ul>
+								<li class="fragment roll-in">People Encrypt With Your Public Key!</li>
+								<li class="fragment roll-in">You Decrypt that with your Private Key!</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+							<h2>PGP</h2>
+							<p class="fragment roll-in">Pretty Good Privacy</p>
+					</section>
+
+					<section data-transition="linear" data-background-transition="slide">
+						<h2>PGP</h2>
+						<p>
+							is an Hybrid CryptoSystem.
+						</p>
+						<aside class="notes">
+							...
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section data-transition="linear" data-background-transition="slide">
+						<h2>So, GPG?</h2>
+						<p>
+							Is an free implementation of OpenPGP standard!
+						</p>
+					</section>
+				</section>
+				<section>
+					<h1>Demo Time!</h1>
+				</section>
+				<section>
+					<p>Generating keys, (gpg --gen-keys)</p>
+				</section>
+				<section>
+					<p>Exporting keys to public key server (gpg --keyserver pgp.mit.edu --send-key [id])</p>
+				</section>
+				<section>
+					<p>Importing keys of your friends from public key server (gpg --search-keys --keyserver pgp.mit.edu "[email]") (gpg --recv-keys --keyserver pgp.mit.edu [key_id])</p>
+				</section>
+				<section>
+					<p>Encrypting a message and sending (gpg --encrypt-files)</p>
+				</section>
+				<section>
+					<p>Decrypting a received files (gpg --decrypt-files)</p>
+				</section>
+				<section>
+					<p>Signing a message</p>
+				</section>
+				<section>
+					<p>Using enigmail with thunderbird</p>
+				</section>
+				<section>
+					<h3>Do's and Dont's on cryptography</h3>
+					<ul>
+						<li class="fragment roll-in">Never ever try to use your own algorithm on production</li>
+						<li class="fragment roll-in">Use only tested and verified encryption libraries.</li>
+						<li class="fragment roll-in">Do not encrypt passwords, always hash 'em</li>
+						<li class="fragment roll-in">Do not use depriciated hashing algorithm or any algorithm which is no longer accepted as a good practice such as MD5 or SHA1</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Do's and Dont's on cryptography contd.</h3>
+					<li class="fragment roll-in">Do not store decryption key in a plain text format.</li>
+					<li class="fragment roll-in">Encryption should always happen at users' end.</li>
+					<li class="fragment roll-in">Always use latest version of library while developing any application.</li>
+					<li class="fragment roll-in">Do not enter credit card details or other sensitive information on any application which do not run on https</li>
+				</section>
+				<section>
+					<h1>Thank You!</h1>
+				</section>
+			</div>
+			<!-- <footer style="position:absolute; top: 97%;" z-index="-62"><small style="font-size:0.3em;">*Slides contain images from 9gag.</small></footer> -->
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
